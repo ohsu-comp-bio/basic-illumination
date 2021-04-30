@@ -12,6 +12,10 @@
 
     #set $outname = str($in_files.name).replace('.ome.tiff','')
 
+    if ! [ -x "$(which ImageJ)" ]; then 
+        alias ImageJ="$(which ImageJ-linux64)"
+    fi
+
     @CMD_BEGIN@
 
     "filename='${in_files.name}',output_dir='.',experiment_name='output'";
